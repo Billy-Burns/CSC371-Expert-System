@@ -39,72 +39,73 @@ const EvaluateForm = () => {
         }
     };
 
+    const renderResult = () => {
+        if (!result) return null;
+
+        const resultMessages = result.split('\n').filter(message => message.trim() !== '');
+
+        return resultMessages.map((message, index) => (
+            <div key={index} className="alert alert-success mt-3">
+                {message}
+            </div>
+        ));
+    };
+
     return (
-        <div>
+        <div className="container mt-5">
+            <h2>Preliminary Questionaire</h2>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Has Python Coursework:
-                    <input type="checkbox" name="hasPythonCW" checked={formData.hasPythonCW} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Software Engineering Coursework:
-                    <input type="checkbox" name="hasSoftwareEngineeringCW" checked={formData.hasSoftwareEngineeringCW} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Agile Coursework:
-                    <input type="checkbox" name="hasAgileCW" checked={formData.hasAgileCW} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Bachelors:
-                    <input type="checkbox" name="hasBachelors" checked={formData.hasBachelors} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Python Years:
-                    <input type="number" name="pythonYears" value={formData.pythonYears} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Data Years:
-                    <input type="number" name="dataYears" value={formData.dataYears} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Agile Experience:
-                    <input type="checkbox" name="hasAgileXP" checked={formData.hasAgileXP} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Git Experience:
-                    <input type="checkbox" name="hasGitXP" checked={formData.hasGitXP} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    PM Years:
-                    <input type="number" name="pmYears" value={formData.pmYears} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has PMI Certification:
-                    <input type="checkbox" name="hasPMICertification" checked={formData.hasPMICertification} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Expert System Years:
-                    <input type="number" name="expertSystemYears" value={formData.expertSystemYears} onChange={handleChange} />
-                </label>
-                <br />
-                <label>
-                    Has Masters:
-                    <input type="checkbox" name="hasMasters" checked={formData.hasMasters} onChange={handleChange} />
-                </label>
-                <br />
-                <button type="submit">Evaluate</button>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasPythonCW" checked={formData.hasPythonCW} onChange={handleChange} />
+                    <label className="form-check-label">Has Python Coursework</label>
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasSoftwareEngineeringCW" checked={formData.hasSoftwareEngineeringCW} onChange={handleChange} />
+                    <label className="form-check-label">Has Software Engineering Coursework</label>
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasAgileCW" checked={formData.hasAgileCW} onChange={handleChange} />
+                    <label className="form-check-label">Has Agile Coursework</label>
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasBachelors" checked={formData.hasBachelors} onChange={handleChange} />
+                    <label className="form-check-label">Has Bachelors</label>
+                </div>
+                <div className="form-group">
+                    <label>Python Years</label>
+                    <input type="number" className="form-control" name="pythonYears" value={formData.pythonYears} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>Data Years</label>
+                    <input type="number" className="form-control" name="dataYears" value={formData.dataYears} onChange={handleChange} />
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasAgileXP" checked={formData.hasAgileXP} onChange={handleChange} />
+                    <label className="form-check-label">Has Agile Experience</label>
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasGitXP" checked={formData.hasGitXP} onChange={handleChange} />
+                    <label className="form-check-label">Has Git Experience</label>
+                </div>
+                <div className="form-group">
+                    <label>PM Years</label>
+                    <input type="number" className="form-control" name="pmYears" value={formData.pmYears} onChange={handleChange} />
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasPMICertification" checked={formData.hasPMICertification} onChange={handleChange} />
+                    <label className="form-check-label">Has PMI Certification</label>
+                </div>
+                <div className="form-group">
+                    <label>Expert System Years</label>
+                    <input type="number" className="form-control" name="expertSystemYears" value={formData.expertSystemYears} onChange={handleChange} />
+                </div>
+                <div className="form-check">
+                    <input type="checkbox" className="form-check-input" name="hasMasters" checked={formData.hasMasters} onChange={handleChange} />
+                    <label className="form-check-label">Has Masters</label>
+                </div>
+                <button type="submit" className="btn btn-primary mt-3">Evaluate</button>
             </form>
-            {result && <div><h3>Result:</h3><p>{result}</p></div>}
+            {renderResult()}
         </div>
     );
 };
