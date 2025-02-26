@@ -1,0 +1,17 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+**/src/main/resources/application-*.yml
+**/src/main/resources/application-*.properties
+
+# IntelliJ IDEA
+/.idea/
+/*.iml
+
+# Eclipse
+/.project
+/.classpath
+/.settings/
+
+# Misc
+.DS_Store
