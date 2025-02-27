@@ -1,0 +1,13 @@
+// filepath: /Users/billyburns/CSC371-Expert-System/app.json
+{
+    "name": "job-applicant-expert-system",
+    "scripts": {},
+    "env": {},
+    "formation": {},
+    "addons": [],
+    "buildpacks": [
+      {
+        "url": "https://github.com/heroku/heroku-buildpack-java"
+      }
+    ]
+  }
